@@ -1,5 +1,5 @@
-import Counter from './Features/Counter/Counter';
-import ExampleComponent from './Features/Example/ExampleComponent';
+
+import PostsList from './Features/Posts/Posts';
 import Header from './Components/Header';
 import './App.css';
 
@@ -7,8 +7,8 @@ function App() {
   return (
     <div>
       <Header />
-      <Counter />
-      <ExampleComponent />
+      <h1>Reddit App</h1>
+      <PostsList />
     </div>
   );
 }
