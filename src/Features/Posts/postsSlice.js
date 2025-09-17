@@ -1,11 +1,21 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+// export const fetchPosts = createAsyncThunk(
+//   'posts/fetchPosts',
+//   async (category = 'popular') => {
+//     const response = await fetch(`https://www.reddit.com/r/${category}.json`);
+//     const data = await response.json();
+//     return data.data.children.map(post => post.data);
+//   }
+// );
+
 export const fetchPosts = createAsyncThunk(
   'posts/fetchPosts',
-  async (category = 'popular') => {
-    const response = await fetch(`https://www.reddit.com/r/${category}.json`);
-    const data = await response.json();
-    return data.data.children.map(post => post.data);
+  async () => {
+    return [
+      { id: '1', title: 'Mock Post One', subreddit: 'reactjs', author: 'user123' },
+      { id: '2', title: 'Mock Post Two', subreddit: 'webdev', author: 'dev456' },
+    ];
   }
 );
 
