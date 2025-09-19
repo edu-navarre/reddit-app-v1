@@ -19,7 +19,9 @@ const PostsList = () => {
     <div>
       {posts.map(post => (
         <div key={post.id} style={{ marginBottom: '1rem' }}>
-          <h3>{post.title}</h3>
+          <h3>
+            <Link to={`/post/${post.id}`}>{post.title}</Link>
+          </h3>
           <p>r/{post.subreddit} • Posted by u/{post.author}</p>
         </div>
       ))}

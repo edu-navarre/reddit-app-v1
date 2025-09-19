@@ -1,43 +1,44 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+
 // export const fetchPosts = createAsyncThunk(
 //   'posts/fetchPosts',
-//   async (category = 'popular') => {
-//     const response = await fetch(`https://www.reddit.com/r/${category}.json`);
-//     const data = await response.json();
-//     return data.data.children.map(post => post.data);
+//   async () => {
+//     return [
+//       { id: '1', title: 'Mock Post One', subreddit: 'reactjs', author: 'user123' },
+//       { id: '2', title: 'Mock Post Two', subreddit: 'webdev', author: 'dev456' },
+//     ];
 //   }
 // );
 
-export const fetchPosts = createAsyncThunk(
-  'posts/fetchPosts',
-  async () => {
-    return [
-      { id: '1', title: 'Mock Post One', subreddit: 'reactjs', author: 'user123' },
-      { id: '2', title: 'Mock Post Two', subreddit: 'webdev', author: 'dev456' },
-    ];
+export const fetchPostDetails = createAsyncThunk(
+  'posts/fetchPostDetails',
+  async (id) => {
+    const response = await fetch(`https://www.reddit.com/comments/${id}.json`);
+    const data = await response.json();
+    return data[0].data.children[0].data; // Extract post details
   }
 );
 
 const postsSlice = createSlice({
   name: 'posts',
-  initialState: {
-    posts: [],
-    status: 'idle',
-    error: null,
+  initialState: { 
+    posts: [], 
+    post: null, 
+    status: 'idle', 
+    error: null 
   },
   reducers: {},
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      .addCase(fetchPosts.pending, state => {
+      .addCase(fetchPostDetails.pending, (state) => {
         state.status = 'loading';
-        state.error = null;
       })
-      .addCase(fetchPosts.fulfilled, (state, action) => {
+      .addCase(fetchPostDetails.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.posts = action.payload;
+        state.post = action.payload;
       })
-      .addCase(fetchPosts.rejected, (state, action) => {
+      .addCase(fetchPostDetails.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       });
