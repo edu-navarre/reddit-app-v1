@@ -1,17 +1,32 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
+export const fetchCategoryPosts = createAsyncThunk(
+  'categories/fetchCategoryPosts',
+  async (category) => {
+    const response = await fetch(`https://www.reddit.com/r/${category}.json`);
+    const data = await response.json();
+    return data.data.children.map((post) => post.data);
+  }
+);
 
 const categoriesSlice = createSlice({
   name: 'categories',
-  initialState: {
-    selectedCategory: 'popular',
-    availableCategories: ['popular', 'reactjs', 'webdev', 'javascript'],
-  },
-  reducers: {
-    setCategory(state, action) {
-      state.selectedCategory = action.payload;
-    },
+  initialState: { posts: [], status: 'idle', error: null },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchCategoryPosts.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchCategoryPosts.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.posts = action.payload;
+      })
+      .addCase(fetchCategoryPosts.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      });
   },
 });
 
-export const { setCategory } = categoriesSlice.actions;
 export default categoriesSlice.reducer;

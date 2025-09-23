@@ -1,34 +1,13 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setCategory } from './categoriesSlice';
-import { fetchPostDetails } from '../Posts/postsSlice';
+import CategoryFilter from '../../Components/CategoryFilter';
 
 const Categories = () => {
-  const dispatch = useDispatch();
-  const { selectedCategory, availableCategories } = useSelector(state => state.categories);
-
-  const handleCategoryClick = (category) => {
-    dispatch(setCategory(category));
-    dispatch(fetchPostDetails(category)); // Fetch posts for the selected category
-  };
+  const categories = ['popular', 'news', 'technology', 'funny'];
 
   return (
     <div>
-      <h2>Categories</h2>
-      <ul style={{ display: 'flex', gap: '1rem', listStyle: 'none' }}>
-        {availableCategories.map(category => (
-          <li key={category}>
-            <button
-              onClick={() => handleCategoryClick(category)}
-              style={{
-                fontWeight: category === selectedCategory ? 'bold' : 'normal',
-              }}
-            >
-              {category}
-            </button>
-          </li>
-        ))}
-      </ul>
+      <h2>Filter by Category</h2>
+      <CategoryFilter categories={categories} />
     </div>
   );
 };
