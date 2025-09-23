@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchPostDetails } from './postsSlice';
+import { fetchPosts } from './postsSlice';
 import { useParams } from 'react-router-dom';
 
 const PostDetail = () => {
@@ -9,7 +9,7 @@ const PostDetail = () => {
   const { post, status, error } = useSelector((state) => state.posts);
 
   useEffect(() => {
-    dispatch(fetchPostDetails(id));
+    dispatch(fetchPosts(id));
   }, [dispatch, id]);
 
   if (status === 'loading') return <p>Loading post...</p>;

@@ -1,44 +1,26 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-
-// export const fetchPosts = createAsyncThunk(
-//   'posts/fetchPosts',
-//   async () => {
-//     return [
-//       { id: '1', title: 'Mock Post One', subreddit: 'reactjs', author: 'user123' },
-//       { id: '2', title: 'Mock Post Two', subreddit: 'webdev', author: 'dev456' },
-//     ];
-//   }
-// );
-
-export const fetchPostDetails = createAsyncThunk(
-  'posts/fetchPostDetails',
-  async (id) => {
-    const response = await fetch(`https://www.reddit.com/comments/${id}.json`);
-    const data = await response.json();
-    return data[0].data.children[0].data; // Extract post details
-  }
-);
+// Async thunk to fetch posts from r/popular
+export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
+  const response = await fetch('https://www.reddit.com/r/popular.json');
+  const data = await response.json();
+  return data.data.children.map((post) => post.data); // Extract post data
+});
 
 const postsSlice = createSlice({
   name: 'posts',
-  initialState: { 
-    posts: [], 
-    post: null, 
-    status: 'idle', 
-    error: null 
-  },
+  initialState: { posts: [], status: 'idle', error: null },
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchPostDetails.pending, (state) => {
+      .addCase(fetchPosts.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(fetchPostDetails.fulfilled, (state, action) => {
+      .addCase(fetchPosts.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.post = action.payload;
+        state.posts = action.payload;
       })
-      .addCase(fetchPostDetails.rejected, (state, action) => {
+      .addCase(fetchPosts.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       });

@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchPostDetails } from './postsSlice';
+import { fetchPosts } from './postsSlice'; // Use the correct action for fetching posts
 import PostCard from '../../Components/PostCard';
 
-const PostsList = () => {
+const Posts = () => {
   const dispatch = useDispatch();
-  const { posts, status, error } = useSelector(state => state.posts);
+  const { posts, status, error } = useSelector((state) => state.posts);
 
   useEffect(() => {
     if (status === 'idle') {
-      dispatch(fetchPostDetails());
+      dispatch(fetchPosts()); // Dispatch the fetchPosts action
     }
   }, [status, dispatch]);
 
@@ -18,17 +18,17 @@ const PostsList = () => {
 
   return (
     <div>
-    {posts.map((post) => (
-      <PostCard
-        key={post.id}
-        id={post.id}
-        title={post.title}
-        subreddit={post.subreddit}
-        author={post.author}
-      />
-    ))}
-  </div>
+      {posts.map((post) => (
+        <PostCard
+          key={post.id}
+          id={post.id}
+          title={post.title}
+          subreddit={post.subreddit}
+          author={post.author}
+        />
+      ))}
+    </div>
   );
 };
 
-export default PostsList;
+export default Posts;
