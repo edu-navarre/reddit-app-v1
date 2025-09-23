@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  fetchSearchResults
-} from './searchSlice';
+import { fetchSearchResults } from './searchSlice';
 
 const Search = () => {
   const dispatch = useDispatch();
-  const { query, results, status, error } = useSelector((state) => state.search);
+  const { results, status, error } = useSelector((state) => state.search);
   const [input, setInput] = useState('');
 
   const handleSubmit = (e) => {
