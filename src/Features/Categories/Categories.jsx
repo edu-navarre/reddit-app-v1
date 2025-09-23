@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategory } from './categoriesSlice';
-import { fetchPosts } from '../Posts/postsSlice';
+import { fetchPostDetails } from '../Posts/postsSlice';
 
 const Categories = () => {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ const Categories = () => {
 
   const handleCategoryClick = (category) => {
     dispatch(setCategory(category));
-    dispatch(fetchPosts(category)); // Fetch posts for the selected category
+    dispatch(fetchPostDetails(category)); // Fetch posts for the selected category
   };
 
   return (

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchPosts } from './postsSlice';
+import { fetchPostDetails } from './postsSlice';
+import { Link } from 'react-router-dom';
 
 const PostsList = () => {
   const dispatch = useDispatch();
@@ -8,7 +9,7 @@ const PostsList = () => {
 
   useEffect(() => {
     if (status === 'idle') {
-      dispatch(fetchPosts());
+      dispatch(fetchPostDetails());
     }
   }, [status, dispatch]);
 
