@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPostDetails } from './postsSlice';
-import { Link } from 'react-router-dom';
+import PostCard from '../../Components/PostCard';
 
 const PostsList = () => {
   const dispatch = useDispatch();
@@ -18,15 +18,16 @@ const PostsList = () => {
 
   return (
     <div>
-      {posts.map(post => (
-        <div key={post.id} style={{ marginBottom: '1rem' }}>
-          <h3>
-            <Link to={`/post/${post.id}`}>{post.title}</Link>
-          </h3>
-          <p>r/{post.subreddit} • Posted by u/{post.author}</p>
-        </div>
-      ))}
-    </div>
+    {posts.map((post) => (
+      <PostCard
+        key={post.id}
+        id={post.id}
+        title={post.title}
+        subreddit={post.subreddit}
+        author={post.author}
+      />
+    ))}
+  </div>
   );
 };
 
