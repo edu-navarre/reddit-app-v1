@@ -1,17 +1,9 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchPosts } from './postsSlice'; // Use the correct action for fetching posts
+import React from 'react';
+import { useSelector } from 'react-redux';
 import PostCard from '../../Components/PostCard';
 
 const Posts = () => {
-  const dispatch = useDispatch();
-  const { posts, status, error } = useSelector((state) => state.posts);
-
-  useEffect(() => {
-    if (status === 'idle') {
-      dispatch(fetchPosts()); // Dispatch the fetchPosts action
-    }
-  }, [status, dispatch]);
+  const { posts, status, error } = useSelector((state) => state.categories); // Use posts from the categories slice
 
   if (status === 'loading') return <p>Loading posts...</p>;
   if (status === 'failed') return <p>Error: {error}</p>;
