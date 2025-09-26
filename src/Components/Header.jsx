@@ -2,9 +2,17 @@ import reactLogo from '../assets/react.svg';
 
 function Header() {
   return (
-    <header>
+    <header
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        padding: 'var(--space-sm)',
+        backgroundColor: 'var(--color-card)',
+        borderBottom: '1px solid var(--color-border)',
+      }}
+    >
       <img src={reactLogo} alt="React Logo" width={40} />
-      <h1>Edu React Redux App</h1>
+      <h1>Eddit</h1>
     </header>
   );
 }

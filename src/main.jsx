@@ -6,6 +6,7 @@ import { store } from './App/store';
 import App from './App';
 import Search from './Features/Search/Search';
 import PostDetail from './Features/Posts/PostDetail';
+import './Styles/global.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>

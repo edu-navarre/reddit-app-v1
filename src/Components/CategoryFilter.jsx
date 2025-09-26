@@ -15,7 +15,16 @@ const CategoryFilter = ({ categories }) => {
         <button
           key={category}
           onClick={() => handleCategoryChange(category)}
-          style={{ margin: '0.5rem', padding: '0.5rem 1rem' }}
+          style={{
+            backgroundColor: 'var(--color-primary)',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '20px',
+            padding: 'var(--space-xs) var(--space-sm)',
+            margin: 'var(--space-xs)',
+            fontWeight: 'var(--font-weight-bold)',
+            cursor: 'pointer',
+          }}
         >
           {category}
         </button>

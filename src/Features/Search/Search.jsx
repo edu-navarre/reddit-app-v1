@@ -24,6 +24,13 @@ const Search = () => {
       <form onSubmit={handleSearch}>
         <input
           type="text"
+          style={{
+            width: '40%',
+            padding: 'var(--space-xs) var(--space-sm)',
+            border: '1px solid var(--color-border)',
+            borderRadius: '20px',
+            fontSize: 'var(--font-size-md)',
+          }}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search Reddit"
