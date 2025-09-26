@@ -17,6 +17,7 @@ const Search = () => {
 
   if (status === 'loading') return <p>Loading search results...</p>;
   if (status === 'failed') return <p>Error: {error}</p>;
+  if (status === 'succeeded' && results.length === 0) return <p>No results found for "{query}".</p>;
 
   return (
     <div>

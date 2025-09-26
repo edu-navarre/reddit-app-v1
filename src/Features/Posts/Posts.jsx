@@ -13,6 +13,7 @@ const Posts = () => {
 
   if (status === 'loading') return <p>Loading posts...</p>;
   if (status === 'failed') return <p>Error: {error}</p>;
+  if (status === 'succeeded' && !posts) return <p>⚠️ Post not found or removed.</p>;
 
   return (
     <div>
