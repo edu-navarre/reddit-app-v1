@@ -1,26 +1,32 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchPosts } from './postsSlice';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { fetchPostDetails } from './postDetailSlice';
 
 const PostDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { post, status, error } = useSelector((state) => state.posts);
+  const { post, comments, status, error } = useSelector(state => state.postDetail);
 
   useEffect(() => {
-    dispatch(fetchPosts(id));
+    dispatch(fetchPostDetails(id));
   }, [dispatch, id]);
 
   if (status === 'loading') return <p>Loading post...</p>;
   if (status === 'failed') return <p>Error: {error}</p>;
+  if (!post) return null;
 
   return (
     <div>
       <h2>{post.title}</h2>
-      <p>r/{post.subreddit} • Posted by u/{post.author}</p>
-      <p>{post.selftext}</p>
-      {/* Add comments or other details here */}
+      <p>r/{post.subreddit} • u/{post.author}</p>
+      <hr />
+      <h3>Comments</h3>
+      {comments.map(comment => (
+        <div key={comment.id} style={{ marginBottom: '1rem' }}>
+          <p><strong>u/{comment.author}</strong>: {comment.body}</p>
+        </div>
+      ))}
     </div>
   );
 };
