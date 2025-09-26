@@ -4,8 +4,17 @@ import PostsList from './Features/Posts/Posts';
 import Header from './Components/Header';
 import ErrorBoundary from './Components/ErrorBoundary';
 import './App.css';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchPosts } from './Features/Posts/postsSlice';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPosts());
+  }, [dispatch]);
+
   return (
     <div>
       <Header />
