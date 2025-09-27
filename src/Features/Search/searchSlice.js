@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchSearchResults = createAsyncThunk(
   'search/fetchSearchResults',
   async (query) => {
-    const response = await fetch(`https://www.reddit.com/search.json?q=${query}`);
+    const response = await fetch(`http://localhost:4000/search/${query}`);
     const data = await response.json();
     return data.data.children.map((post) => post.data);
   }

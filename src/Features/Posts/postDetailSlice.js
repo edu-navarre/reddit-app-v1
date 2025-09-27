@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchPostDetails = createAsyncThunk(
   'postDetail/fetchPostDetails',
   async (id) => {
-    const response = await fetch(`https://www.reddit.com/comments/${id}.json`);
+    const response = await fetch(`http://localhost:4000/comments/${id}`);
     const data = await response.json();
     return {
       post: data[0].data.children[0].data,

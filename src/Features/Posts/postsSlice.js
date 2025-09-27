@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 // Async thunk to fetch posts from r/popular
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-  const response = await fetch('https://www.reddit.com/r/popular.json');
+  const response = await fetch('http://localhost:4000/api/popular');
   const data = await response.json();
   return data.data.children.map((post) => post.data); // Extract post data
 });
