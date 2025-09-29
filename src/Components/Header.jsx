@@ -1,4 +1,4 @@
-import reactLogo from '../assets/react.svg';
+import edditlogo from '../assets/eddit-logo.svg';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSearchResults } from '../Features/Search/searchSlice';
@@ -27,9 +27,9 @@ function Header() {
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <img src={reactLogo} alt="React Logo" width={40} />
+        <img src={edditlogo} alt="Eddit Logo" width={40} />
         <h1 style={{ marginLeft: 'var(--space-sm)', fontSize: 'var(--font-size-xl)', color: 'var(--color-primary)' }}>
-          Edu React Redux App
+          Eddit
         </h1>
       </div>
 
