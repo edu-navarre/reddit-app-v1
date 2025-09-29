@@ -18,17 +18,29 @@ function Header() {
   return (
     <header
       style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1000,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: 'var(--space-sm)',
         backgroundColor: 'var(--color-card)',
         borderBottom: '1px solid var(--color-border)',
+        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)',
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div style={{ display: 'flex', alignItems: 'center', padding: 'var(--space-xs)'}}>
         <img src={edditlogo} alt="Eddit Logo" width={40} />
-        <h1 style={{ marginLeft: 'var(--space-sm)', fontSize: 'var(--font-size-xl)', color: 'var(--color-primary)' }}>
+        <h1 
+          style={{ 
+            marginLeft: 'var(--space-sm)',
+            fontSize: 'var(--font-size-xl)',
+            color: 'var(--color-primary)',
+            marginTop: '0.5rem',
+            marginBottom: '0.5rem' }}>
           Eddit
         </h1>
       </div>
@@ -42,7 +54,7 @@ function Header() {
           style={{
             padding: 'var(--space-xs) var(--space-sm)',
             border: '1px solid var(--color-border)',
-            borderRadius: '6px',
+            borderRadius: '20px',
             fontSize: 'var(--font-size-md)',
           }}
         />

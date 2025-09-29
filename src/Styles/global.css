@@ -1,4 +1,7 @@
 :root {
+    /* Header */
+  --header-height: 40px;
+
   /* Colors */
   --color-bg: #f5f7fa;
   --color-card: #ffffff;
@@ -30,4 +33,8 @@ body {
   font-size: var(--font-size-md);
   color: var(--color-text);
   background-color: var(--color-bg);
+}
+
+.main-content {
+  padding-top: var(--header-height);
 }

@@ -18,16 +18,18 @@ function App() {
   return (
     <div>
       <Header />
-      <ErrorBoundary>
-        <Search />
-      </ErrorBoundary>
-      <ErrorBoundary>
-        <Categories />
-      </ErrorBoundary>
-      <h1>Reddit App</h1>
-      <ErrorBoundary>
-        <PostsList />
-      </ErrorBoundary>
+      <div className="main-content">
+        <ErrorBoundary>
+          <Search />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Categories />
+        </ErrorBoundary>
+        <h1>Eddit App</h1>
+        <ErrorBoundary>
+          <PostsList />
+        </ErrorBoundary>
+      </div>
     </div>
   );
 }
