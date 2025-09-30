@@ -24,6 +24,9 @@ const Posts = () => {
           title={post.title}
           subreddit={post.subreddit}
           author={post.author}
+          preview={post.preview}
+          media={post.media}
+          thumbnail={post.thumbnail}
         />
       ))}
     </div>

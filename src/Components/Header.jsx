@@ -26,22 +26,22 @@ function Header() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: 'var(--space-sm)',
         backgroundColor: 'var(--color-card)',
         borderBottom: '1px solid var(--color-border)',
         boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)',
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', padding: 'var(--space-xs)'}}>
+      <div style={{ display: 'flex', alignItems: 'center', padding: 'var(--space-xs)', marginLeft: '1rem'}}>
         <img src={edditlogo} alt="Eddit Logo" width={40} />
-        <h1 
+        <h1
           style={{ 
             marginLeft: 'var(--space-sm)',
             fontSize: 'var(--font-size-xl)',
             color: 'var(--color-primary)',
             marginTop: '0.5rem',
-            marginBottom: '0.5rem' }}>
-          Eddit
+            marginBottom: '0.5rem',
+            }}>
+          eddit
         </h1>
       </div>
 
