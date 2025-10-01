@@ -44,16 +44,21 @@ const PostCard = ({ id, title, subreddit, author, preview, media }) => {
       <p 
         style={{
           color: 'var(--color-muted)',
-          fontSize: 'var(--font-size-sm)'}}
+          fontSize: 'var(--font-size-sm)',
+          marginTop: '0.5rem',
+          marginBottom: '0.5rem'}}
       >r/{subreddit}</p>
 
-      <h3><Link
+      <h3 style={{
+          marginTop: '0.5rem',
+          marginBottom: '0.5rem'}}>
+        <Link
           to={`/post/${id}`}
           style={{
             color: 'var(--color-text)',
-            textDecoration: 'none',
-          }}    
-      >{title}</Link></h3>
+            fontWeight: 'var(--font-weight-bold)',
+            textDecoration: 'none',}}    
+        >{title}</Link></h3>
 
       {videoUrl ? (
         isPortrait ? (
@@ -66,7 +71,7 @@ const PostCard = ({ id, title, subreddit, author, preview, media }) => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            marginTop: 'var(--space-sm)',
+            marginTop: 'var(--space-xs)',
             padding: '0',
           }}>
             <video
@@ -77,6 +82,7 @@ const PostCard = ({ id, title, subreddit, author, preview, media }) => {
                 maxWidth: '100%',
                 maxHeight: '100%',
                 objectFit: 'contain',
+                marginTop: 'var(--space-xs)',
               }}
             />
           </div>
@@ -88,7 +94,7 @@ const PostCard = ({ id, title, subreddit, author, preview, media }) => {
             style={{
               width: '100%',
               borderRadius: '20px',
-              marginTop: 'var(--space-sm)',
+              marginTop: 'var(--space-xs)',
             }}
           />
         )
@@ -103,7 +109,7 @@ const PostCard = ({ id, title, subreddit, author, preview, media }) => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            marginTop: 'var(--space-sm)',
+            marginTop: 'var(--space-xs)',
             padding: '0',
           }}>
             <img
@@ -114,6 +120,7 @@ const PostCard = ({ id, title, subreddit, author, preview, media }) => {
                 width: '100%',
                 height: '100%',
                 objectFit: 'contain',
+                marginTop: 'var(--space-xs)',
               }}
             />
           </div>
@@ -125,7 +132,7 @@ const PostCard = ({ id, title, subreddit, author, preview, media }) => {
             style={{
               width: '100%',
               borderRadius: '20px',
-              marginTop: 'var(--space-sm)',
+              marginTop: 'var(--space-xs)',
             }}
           />
         )

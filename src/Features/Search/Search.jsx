@@ -9,7 +9,7 @@ const Search = () => {
   if (status === 'failed') return <p>Error: {error}</p>;
   if (status === 'succeeded' && results.length === 0) return <p>No results found.</p>;
 
-  return (
+  return results.length > 0 ? (
     <div>
       {results.map(post => (
         <PostCard
@@ -21,7 +21,7 @@ const Search = () => {
         />
       ))}
     </div>
-  );
+  ) : null;
 };
 
 export default Search;
