@@ -18,8 +18,8 @@ const PostDetail = () => {
 
   return (
     <div>
-      <h2>{post.title}</h2>
       <p>r/{post.subreddit} • u/{post.author}</p>
+      <h2>{post.title}</h2>
       <hr />
       <h3>Comments</h3>
       {comments.map(comment => (

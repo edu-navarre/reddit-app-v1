@@ -6,8 +6,8 @@ export const fetchPostDetails = createAsyncThunk(
     const response = await fetch(`http://localhost:4000/comments/${id}`);
     const data = await response.json();
     return {
-      post: data[0].data.children[0].data,
-      comments: data[1].data.children.map(c => c.data),
+      post: data.post,
+      comments: data.comments,
     };
   }
 );

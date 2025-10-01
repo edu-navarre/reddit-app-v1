@@ -29,25 +29,37 @@ const PostCard = ({ id, title, subreddit, author, preview, media }) => {
 
   return (
     <div className="post-card"
-    style={{
+      style={{
         backgroundColor: 'var(--color-card)',
         border: '1px solid var(--color-border)',
         borderRadius: '20px',
         padding: 'var(--space-sm)',
         marginBottom: 'var(--space-md)',
         boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)',
-        maxWidth: '50%',
+        maxWidth: '100%',
         marginTop: 'var(--space-sm)',
+        textAlign: 'left',
       }}
     >
-      <p>r/{subreddit} • Posted by u/{author}</p>
-      <h3><Link to={`/post/${id}`}>{title}</Link></h3>
+      <p 
+        style={{
+          color: 'var(--color-muted)',
+          fontSize: 'var(--font-size-sm)'}}
+      >r/{subreddit}</p>
+
+      <h3><Link
+          to={`/post/${id}`}
+          style={{
+            color: 'var(--color-text)',
+            textDecoration: 'none',
+          }}    
+      >{title}</Link></h3>
 
       {videoUrl ? (
         isPortrait ? (
           <div style={{
             width: '100%',
-            aspectRatio: '1 / 1',
+            aspectRatio: '1.3 / 1',
             overflow: 'hidden',
             borderRadius: '20px',
             backgroundColor: '#000',
@@ -84,7 +96,7 @@ const PostCard = ({ id, title, subreddit, author, preview, media }) => {
         isPortrait ? (
           <div style={{
             width: '100%',
-            aspectRatio: '1 / 1',
+            aspectRatio: '1.3 / 1',
             overflow: 'hidden',
             borderRadius: '20px',
             backgroundColor: '#000',
@@ -118,6 +130,13 @@ const PostCard = ({ id, title, subreddit, author, preview, media }) => {
           />
         )
       ) : null}
+
+      <p 
+        style={{
+          color: 'var(--color-muted)',
+          fontSize: 'var(--font-size-sm)'}}
+      >Posted by u/{author}</p>
+
     </div>
   );
 };
