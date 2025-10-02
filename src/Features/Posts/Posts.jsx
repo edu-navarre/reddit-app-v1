@@ -27,6 +27,7 @@ const Posts = () => {
           preview={post.preview}
           media={post.media}
           thumbnail={post.thumbnail}
+          num_comments={post.num_comments}
         />
       ))}
     </div>

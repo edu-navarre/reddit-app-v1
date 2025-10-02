@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
+import commentsIcon from '../Assets/Comment-11.svg';
 
-const PostCard = ({ id, title, subreddit, author, preview, media }) => {
+const PostCard = ({ id, title, subreddit, author, preview, media, num_comments }) => {
   const imageUrl = preview?.images?.[0]?.source?.url?.replace(/&amp;/g, '&');
   const videoUrl = media?.reddit_video?.fallback_url;
 
@@ -43,10 +44,14 @@ const PostCard = ({ id, title, subreddit, author, preview, media }) => {
     >
       <p 
         style={{
-          color: 'var(--color-muted)',
+          width: 'fit-content',
+          color: 'var(--color-text)',
           fontSize: 'var(--font-size-sm)',
           marginTop: '0.5rem',
-          marginBottom: '0.5rem'}}
+          marginBottom: '0.5rem',
+          padding: '0.2rem 0.6rem',
+          borderRadius: '12px',
+          backgroundColor: 'var(--color-subeddit)',}}
       >r/{subreddit}</p>
 
       <h3 style={{
@@ -82,7 +87,6 @@ const PostCard = ({ id, title, subreddit, author, preview, media }) => {
                 maxWidth: '100%',
                 maxHeight: '100%',
                 objectFit: 'contain',
-                marginTop: 'var(--space-xs)',
               }}
             />
           </div>
@@ -120,7 +124,6 @@ const PostCard = ({ id, title, subreddit, author, preview, media }) => {
                 width: '100%',
                 height: '100%',
                 objectFit: 'contain',
-                marginTop: 'var(--space-xs)',
               }}
             />
           </div>
@@ -141,9 +144,28 @@ const PostCard = ({ id, title, subreddit, author, preview, media }) => {
       <p 
         style={{
           color: 'var(--color-muted)',
-          fontSize: 'var(--font-size-sm)'}}
-      >Posted by u/{author}</p>
-
+          fontSize: 'var(--font-size-sm)',
+          marginLeft: '0.5rem',}}
+      >Posted by u/{author}
+      </p>
+      
+      
+      <a href={`/post/${id}`} style={{
+        width: 'fit-content',
+        display: 'flex',
+        alignItems: 'center',
+        marginLeft: '1rem',
+        textDecoration: 'none',
+        color: 'var(--color-muted)',
+        borderRadius: '20px',
+        backgroundColor: 'var(--color-bg)',
+        padding: '0.1rem 0.6rem',
+        }}>
+        <img src={commentsIcon} alt="Eddit Logo" style={{width:'20px',}} />
+        <p style={{paddingLeft: '0.5rem', fontSize: 'var(--font-size-sm)'}}>
+          {num_comments}
+        </p>
+      </a>
     </div>
   );
 };
