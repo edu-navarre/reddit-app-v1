@@ -1,6 +1,6 @@
 :root {
     /* Header */
-  --header-height: 40px;
+  --header-height: 64px;
 
   /* Colors */
   --color-bg: #f5f7fa;
@@ -29,6 +29,7 @@
 }
 
 body {
+  padding: 0;
   margin: 0;
   font-family: var(--font-base);
   font-size: var(--font-size-md);
@@ -37,5 +38,5 @@ body {
 }
 
 .main-content {
-  padding-top: var(--header-height);
+  padding: var(--space-lg);
 }

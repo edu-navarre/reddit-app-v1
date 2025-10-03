@@ -163,7 +163,7 @@ const PostCard = ({ id, title, subreddit, author, preview, media, num_comments }
         }}>
         <img src={commentsIcon} alt="Eddit Logo" style={{width:'20px',}} />
         <p style={{paddingLeft: '0.5rem', fontSize: 'var(--font-size-sm)'}}>
-          {num_comments}
+          {num_comments} {num_comments === 1 ? 'comment' : 'comments'}
         </p>
       </a>
     </div>

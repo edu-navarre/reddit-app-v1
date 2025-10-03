@@ -1,18 +1,35 @@
-.category-filter {
+.category-filter { 
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  background-color: #ffffff;
+  padding: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.categories-container {
+  border-radius: 20px;
+  background-color: var(--color-bg);
+  margin-left: 0.5rem;
 }
 
 .category-filter button {
-  background-color: #0079d3;
-  color: white;
+  color: var(--color-text);
+  background-color: transparent;
+  padding: var(--space-xs) var(--space-md);
+  margin: var(--space-xs);
+  font-weight: var(--font-weight-bold);
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .category-filter button:hover {
-  background-color: #005999;
+  background-color: var(--color-subeddit);
+}
+
+.category-filter button:active {
+  background-color: var(--color-card)
 }

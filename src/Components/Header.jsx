@@ -28,7 +28,7 @@ function Header() {
         justifyContent: 'space-between',
         backgroundColor: 'var(--color-card)',
         borderBottom: '1px solid var(--color-border)',
-        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)',
+        // boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)',
         padding: '0 1rem',
         height: '4rem',
       }}
@@ -38,9 +38,10 @@ function Header() {
         <img src={edditlogo} alt="Eddit Logo" width={40} />
         <h1
           style={{
-            marginLeft: 'var(--space-sm)',
+            margin: 'var(--space-sm)',
             fontSize: 'var(--font-size-xl)',
             color: 'var(--color-primary)',
+            padding: '0',
           }}
         >
           eddit

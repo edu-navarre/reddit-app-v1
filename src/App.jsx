@@ -16,14 +16,15 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div style={{ padding: '0', margin: '0', boxSizing: 'border-box' }}>
       <Header />
+      
+      <ErrorBoundary>
+        <Categories />
+      </ErrorBoundary>
       <div className="main-content">
         <ErrorBoundary>
           <Search />
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <Categories />
         </ErrorBoundary>
         <h1>Eddit App</h1>
         <ErrorBoundary>

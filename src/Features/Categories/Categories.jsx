@@ -10,8 +10,7 @@ if (status === 'loading') return <p>🔄 Loading category...</p>
 if (status === 'failed') return <p>⚠️ Error loading category: {error}</p>
 
   return (
-    <div>
-      <h2>Filter by Category</h2>
+    <div style={{ paddingTop: 'var(--header-height)'}}>
       <CategoryFilter categories={categories} />
     </div>
   );
