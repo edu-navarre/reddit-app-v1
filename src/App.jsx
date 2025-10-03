@@ -26,7 +26,6 @@ function App() {
         <ErrorBoundary>
           <Search />
         </ErrorBoundary>
-        <h1>Eddit App</h1>
         <ErrorBoundary>
           <PostsList />
         </ErrorBoundary>

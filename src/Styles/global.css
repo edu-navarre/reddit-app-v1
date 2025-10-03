@@ -39,4 +39,5 @@ body {
 
 .main-content {
   padding: var(--space-lg);
+  padding-top: var(--space-md);
 }
