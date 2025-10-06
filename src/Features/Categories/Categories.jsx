@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import CategoryFilter from '../../Components/CategoryFilter';
 
 const Categories = () => {
-  const categories = ['popular', 'news', 'technology', 'funny'];
+  const categories = ['Popular', 'News', 'Technology', 'Funny'];
   const { status, error } = useSelector(state => state.categories);
 
 if (status === 'loading') return <p>🔄 Loading category...</p>
