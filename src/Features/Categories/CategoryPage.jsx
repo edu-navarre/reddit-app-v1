@@ -15,7 +15,6 @@ function CategoryPage() {
 
   return (
     <div>
-      <h2>Posts in {category}</h2>
       {posts.map(post => (
         <PostCard key={post.id} {...post} />
       ))}

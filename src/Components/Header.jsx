@@ -2,16 +2,19 @@ import edditlogo from '../assets/eddit-logo.svg';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSearchResults } from '../Features/Search/searchSlice';
+import { useNavigate } from 'react-router-dom'; // 👈 Add this
 
 function Header() {
   const [query, setQuery] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // 👈 Hook to change route
   const { status, error } = useSelector(state => state.search);
 
   const handleSearch = (e) => {
     e.preventDefault();
     if (query.trim() !== '') {
-      dispatch(fetchSearchResults(query));
+      dispatch(fetchSearchResults(query)); // 🔍 Dispatch search
+      navigate('/search'); // 🚀 Show Search.jsx
     }
   };
 
@@ -28,7 +31,6 @@ function Header() {
         justifyContent: 'space-between',
         backgroundColor: 'var(--color-card)',
         borderBottom: '1px solid var(--color-border)',
-        // boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)',
         padding: '0 1rem',
         height: '4rem',
       }}
@@ -78,7 +80,7 @@ function Header() {
       {/* Right: Empty or future controls */}
       <div style={{ width: '40px', flexShrink: 0 }}></div>
     </header>
-  )
-};
+  );
+}
 
 export default Header;
