@@ -31,6 +31,6 @@
   background-color: var(--color-subeddit);
 }
 
-.category-filter button:active {
-  background-color: var(--color-card)
+.category-button.active {
+  background-color: var(--color-subeddit);
 }
