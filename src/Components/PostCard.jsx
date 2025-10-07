@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import commentsIcon from '../Assets/Comment-11.svg';
 import styles from './PostCard.module.css';
 
-const PostCard = ({ id, title, subreddit, author, preview, media, num_comments }) => {
+const PostCard = ({ id, title, subreddit, author, preview, media, num_comments, showComments=true }) => {
   const imageUrl = preview?.images?.[0]?.source?.url?.replace(/&amp;/g, '&');
   const videoUrl = media?.reddit_video?.fallback_url;
 
@@ -56,13 +56,12 @@ const PostCard = ({ id, title, subreddit, author, preview, media, num_comments }
 
       <p className={styles.postAuthor}>Posted by u/{author}</p>
       
-      
-      <a className={styles.commentContainer} href={`/post/${id}`}>
+      {showComments ? (<a className={styles.commentContainer} href={`/post/${id}`}>
         <img src={commentsIcon} alt="Eddit Logo" style={{ paddingLeft: '0.5rem', width:'20px' }} />
-        <p style={{padding: '0.5rem', margin: '0', fontSize: 'var(--font-size-sm)'}}>
-          {num_comments} {num_comments === 1 ? 'comment' : 'comments'}
-        </p>
-      </a>
+          <p style={{padding: '0.5rem', margin: '0', fontSize: 'var(--font-size-sm)'}}>
+            {num_comments} {num_comments === 1 ? 'comment' : 'comments'}
+          </p>
+      </a>) : null}
     </div>
   );
 };

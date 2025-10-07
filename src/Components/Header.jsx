@@ -2,7 +2,7 @@ import edditlogo from '../assets/eddit-logo.svg';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSearchResults } from '../Features/Search/searchSlice';
-import { useNavigate } from 'react-router-dom'; // 👈 Add this
+import { useNavigate, Link } from 'react-router-dom';
 
 function Header() {
   const [query, setQuery] = useState('');
@@ -36,19 +36,21 @@ function Header() {
       }}
     >
       {/* Left: Logo + Title */}
-      <div style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
-        <img src={edditlogo} alt="Eddit Logo" width={40} />
-        <h1
-          style={{
-            margin: 'var(--space-sm)',
-            fontSize: 'var(--font-size-xl)',
-            color: 'var(--color-primary)',
-            padding: '0',
-          }}
-        >
-          eddit
-        </h1>
-      </div>
+      <Link to="/" style={{ textDecoration: 'none' }}>
+        <div style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
+          <img src={edditlogo} alt="Eddit Logo" width={40} />
+          <h1
+            style={{
+              margin: 'var(--space-sm)',
+              fontSize: 'var(--font-size-xl)',
+              color: 'var(--color-primary)',
+              padding: '0',
+            }}
+          >
+            eddit
+          </h1>
+        </div>
+      </Link>
 
       {/* Center: Search Bar */}
       <div

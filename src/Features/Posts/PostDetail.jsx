@@ -2,6 +2,9 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchPostDetails } from './postDetailSlice';
+import PostCard from '../../Components/PostCard';
+
+import styles from '../../Components/PostCard.module.css';
 
 const PostDetail = () => {
   const { id } = useParams();
@@ -18,9 +21,15 @@ const PostDetail = () => {
 
   return (
     <div>
-      <p>r/{post.subreddit} • u/{post.author}</p>
-      <h2>{post.title}</h2>
-      <hr />
+      <PostCard
+        id={post.id}
+        title={post.title}
+        subreddit={post.subreddit}
+        author={post.author}
+        preview={post.preview}
+        media={post.media}
+        showComments={false}
+      />
       <h3>Comments</h3>
       {comments.map(comment => (
         <div key={comment.id} style={{ marginBottom: '1rem' }}>
