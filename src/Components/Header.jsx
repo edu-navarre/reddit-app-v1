@@ -1,4 +1,5 @@
 import edditlogo from '../assets/eddit-logo.svg';
+import searchIcon from '../assets/searchIcon.svg';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSearchResults } from '../Features/Search/searchSlice';
@@ -33,12 +34,16 @@ function Header() {
       {/* Center: Search Bar */}
       <div className={styles.searchBarContainer}>
         <form className={styles.searchForm} onSubmit={handleSearch}>
-          <input className={styles.searchInput}
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search Eddit"
-          />
+          <div className={styles.inputWrapper}>
+            <input
+              className={styles.searchInput}
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search Eddit"
+            />
+            <img className={styles.searchIcon} src={searchIcon} alt="Search Icon"/>
+          </div>
         </form>
       </div>
 

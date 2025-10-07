@@ -9,7 +9,7 @@ import './App.css';
 function App() {
 
   return (
-    <div style={{ padding: '0', margin: '0', boxSizing: 'border-box' }}>
+    <div className="global-header">
       <Header />
       <ErrorBoundary>
         <Categories />

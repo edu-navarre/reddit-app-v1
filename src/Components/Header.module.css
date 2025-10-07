@@ -40,6 +40,11 @@
     width: 100%;
 }
 
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
 .searchInput {
     background-color: var(--color-bg);
     flex: 1;
@@ -47,4 +52,16 @@
     border: 1px solid var(--color-border);
     border-radius: 20px;
     font-size: var(--font-size-md);
+    width: 100%;
+}
+
+.searchIcon {
+    width: 20px;
+    position: absolute;
+    right: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: var(--color-border);
+    pointer-events: none; /* ensures it's not clickable */
 }

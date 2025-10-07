@@ -37,6 +37,12 @@ body {
   background-color: var(--color-bg);
 }
 
+.global-header {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+
 .main-content {
   padding: var(--space-lg);
   padding-top: var(--space-md);
