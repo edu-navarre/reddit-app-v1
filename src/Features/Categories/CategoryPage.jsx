@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCategoryPosts } from './categoriesSlice';
+import { fetchCategoryPosts, clearPosts } from './categoriesSlice';
 import PostCard from '../../Components/PostCard';
 
 function CategoryPage() {
@@ -10,6 +10,7 @@ function CategoryPage() {
   const posts = useSelector(state => state.categories.posts);
 
   useEffect(() => {
+    dispatch(clearPosts());
     dispatch(fetchCategoryPosts(category));
   }, [category, dispatch]);
 

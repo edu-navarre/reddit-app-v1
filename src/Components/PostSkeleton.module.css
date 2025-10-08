@@ -1,0 +1,57 @@
+.skeletonsContainer {
+    padding: var(--space-lg);
+    padding-top: var(--space-md);
+}
+
+.postSkeleton {
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    padding: var(--space-sm);
+    margin-bottom: var(--space-md);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    max-width: 100%;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeletonSubreddit,
+.skeletonTitle,
+.skeletonMeta,
+.skeletonBar,
+.skeletonComments {
+  background-color: var(--color-border);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.skeletonSubreddit {
+  height: 1.5rem;
+  width: 8%;
+}
+
+.skeletonTitle {
+  height: 1.5rem;
+  width: 80%;
+}
+
+.skeletonMeta {
+  height: 20rem;
+  width: 100%;
+}
+
+.skeletonBar {
+  height: 1rem;
+  width: 25%;
+}
+
+.skeletonComments {
+    height: 2rem;
+    width: 20%;
+    border-radius: 2rem;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
