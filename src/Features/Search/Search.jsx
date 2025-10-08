@@ -7,7 +7,7 @@ import PostCard from '../../Components/PostCard';
 const Search = () => {
   const dispatch = useDispatch();
   const { results, status, error } = useSelector(state => state.search);
-  const popularPosts = useSelector(state => state.posts.items); // adjust if needed
+  const popularPosts = useSelector(state => state.posts.posts);
 
   // Fetch popular posts only if no search results are present
   useEffect(() => {

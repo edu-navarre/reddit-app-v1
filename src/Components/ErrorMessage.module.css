@@ -1,0 +1,63 @@
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff4f4;
+  color: #a94442;
+  border: 1px solid #f5c6cb;
+  border-radius: 12px;
+  padding: var(--space-lg);
+  margin: var(--space-lg) auto;
+  max-width: 600px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.iconWrapper img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--space-sm);
+}
+
+.errorText {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-sm);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid #f5c6cb;
+}
+
+.errorSubtext {
+  font-size: var(--font-size-md);
+  color: var(--color-muted);
+  margin-bottom: var(--space-md);
+}
+
+.buttonGroup {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.retryButton,
+.homeButton {
+  background-color: #a94442;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.retryButton:hover,
+.homeButton:hover {
+  background-color: #922d2d;
+}

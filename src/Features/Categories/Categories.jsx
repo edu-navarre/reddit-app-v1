@@ -2,6 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import CategoryFilter from '../../Components/CategoryFilter';
 import PostSkeleton from '../../Components/PostSkeleton';
+import ErrorMessage from '../../Components/ErrorMessage';
+
 
 
 const Categories = () => {
@@ -16,7 +18,16 @@ if (status === 'loading') {
     </div>
   );
 }
-if (status === 'failed') return <p style={{ paddingTop: 'var(--header-height)'}}>⚠️ Error loading category: {error}</p>
+if (status === 'failed') return (
+    <div style={{ paddingTop: 'var(--header-height)' }}>
+      <ErrorMessage
+        message={`Error loading category: ${error}`}
+        subtext="This could be due to high server load or a temporary network issue."
+        onRetry={() => dispatch(fetchCategoryPosts(category))}
+      />
+    </div>
+  );
+
 
   return (
     <div style={{ paddingTop: 'var(--header-height)'}}>
