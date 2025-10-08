@@ -30,10 +30,21 @@ const PostDetail = () => {
         media={post.media}
         showComments={false}
       />
-      <h3>Comments</h3>
       {comments.map(comment => (
-        <div key={comment.id} style={{ marginBottom: '1rem' }}>
-          <p><strong>u/{comment.author}</strong>: {comment.body}</p>
+        <div key={comment.id} 
+        style={{
+          marginBottom: '1rem',
+          textAlign: 'left',
+          borderBottom: '1px solid #ccc',
+          paddingBottom: '0.5rem',
+          marginLeft: '1rem', 
+          width: '95%',
+          wordWrap: 'break-word',
+          overflowWrap: 'everywhere',
+          whiteSpace: 'normal'
+        }}>
+          <p><strong>u/{comment.author}</strong></p>
+          <p>{comment.body}</p>
         </div>
       ))}
     </div>
