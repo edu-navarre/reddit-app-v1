@@ -3,7 +3,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchCategoryPosts = createAsyncThunk(
   'categories/fetchCategoryPosts',
   async (category) => {
-    await new Promise(resolve => setTimeout(resolve, 120000));
     const response = await fetch(`http://localhost:4000/api/${category}`);
     const data = await response.json();
     return data.data.children.map((post) => post.data);
