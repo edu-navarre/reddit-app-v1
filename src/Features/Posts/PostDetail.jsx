@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchPostDetails } from './postDetailSlice';
 import PostCard from '../../Components/PostCard';
-
-import styles from '../../Components/PostCard.module.css';
+import PostSkeleton from '../../Components/PostSkeleton';
+import ErrorMessage from '../../Components/ErrorMessage';
 
 const PostDetail = () => {
   const { id } = useParams();
@@ -15,8 +15,23 @@ const PostDetail = () => {
     dispatch(fetchPostDetails(id));
   }, [dispatch, id]);
 
-  if (status === 'loading') return <p>Loading post...</p>;
-  if (status === 'failed') return <p>Error: {error}</p>;
+  if (status === 'loading') {
+    return (
+      // check styling here
+      <div style={{ padding: 0 }}> 
+        {[...Array(1)].map((_, i) => <PostSkeleton noPadding key={i} />)}
+      </div>
+    );
+  }
+  if (status === 'failed') {
+    return (
+      <ErrorMessage
+        message="Unable to load post details"
+        subtext="This post may have been removed or there was a network issue."
+        onRetry={() => dispatch(fetchPostDetails(id))}
+      />
+    );
+  }
   if (!post) return null;
 
   return (

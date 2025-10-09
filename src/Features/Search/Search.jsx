@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPosts } from '../Posts/postsSlice';
 import PostCard from '../../Components/PostCard';
+import ErrorMessage from '../../Components/ErrorMessage';
 
 // This component displays search results only. Input logic lives in Header.jsx.
 const Search = () => {
@@ -17,7 +18,15 @@ const Search = () => {
   }, [dispatch, status, results.length]);
 
   if (status === 'loading') return <p>Loading search results...</p>;
-  if (status === 'failed') return <p>Error: {error}</p>;
+  if (status === 'failed') {
+  return (
+    <ErrorMessage
+      message="Unable to load search results"
+      subtext="This could be due to a temporary network issue or an invalid query."
+      onRetry={() => dispatch(fetchPosts())}
+    />
+  );
+}
 
   const postsToRender = results.length > 0 ? results : popularPosts;
 

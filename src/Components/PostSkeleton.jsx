@@ -1,8 +1,8 @@
 import styles from './PostSkeleton.module.css';
 
-const PostSkeleton = () => {
+const PostSkeleton = ({ noPadding = false }) => {
   return (
-    <div className={styles.skeletonsContainer}> 
+    <div className={`${styles.skeletonsContainer} ${noPadding ? styles.noPadding : ''}`}> 
         <div className={styles.postSkeleton}>
         <div className={styles.skeletonSubreddit}></div>
         <div className={styles.skeletonTitle}></div>

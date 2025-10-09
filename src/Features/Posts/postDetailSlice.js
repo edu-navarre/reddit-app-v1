@@ -3,6 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchPostDetails = createAsyncThunk(
   'postDetail/fetchPostDetails',
   async (id) => {
+    // await new Promise(resolve => setTimeout(resolve, 200)); simulate delay
     const response = await fetch(`http://localhost:4000/comments/${id}`);
     const data = await response.json();
     return {

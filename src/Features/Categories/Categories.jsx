@@ -14,7 +14,7 @@ if (status === 'loading') {
   return (
     <div style={{ paddingTop: 'var(--header-height)' }}>
       <CategoryFilter categories={categories} />
-      {[...Array(1)].map((_, i) => <PostSkeleton key={i} />)}
+      {[...Array(10)].map((_, i) => <PostSkeleton key={i} />)}
     </div>
   );
 }
