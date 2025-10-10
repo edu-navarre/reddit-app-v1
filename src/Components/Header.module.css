@@ -55,6 +55,12 @@
     width: 100%;
 }
 
+@media screen and (max-width: 475px) {
+  .searchInput::placeholder {
+    color: transparent;
+  }
+}
+
 .searchIcon {
     width: 20px;
     position: absolute;
