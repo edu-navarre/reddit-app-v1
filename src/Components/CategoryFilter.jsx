@@ -15,7 +15,7 @@ const CategoryFilter = ({ categories }) => {
   };
 
   return (
-    <div className={styles.categoryFilter}>
+    <nav className={styles.categoryFilter} role="navigation" aria-label="Category filter">
       {/* Desktop layout */}
       <div className={styles.desktopCategories}>
         {categories.map((category) => (
@@ -23,6 +23,7 @@ const CategoryFilter = ({ categories }) => {
             key={category}
             className={`${styles.categoryButton} ${category === currentCategory ? styles.active : ''}`}
             onClick={() => handleCategoryChange(category)}
+            aria-pressed={category === currentCategory}
           >
             {category}
           </button>
@@ -48,7 +49,7 @@ const CategoryFilter = ({ categories }) => {
           </div>
         )}
       </div>
-    </div>
+    </nav>
   );
 };
 

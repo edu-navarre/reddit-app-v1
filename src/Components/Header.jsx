@@ -21,7 +21,7 @@ function Header() {
   };
 
   return (
-    <header className={styles.headers}>
+    <header className={styles.headers} role="banner">
 
       {/* Left: Logo + Title */}
       <Link to="/" style={{ textDecoration: 'none' }}>
@@ -33,7 +33,7 @@ function Header() {
 
       {/* Center: Search Bar */}
       <div className={styles.searchBarContainer}>
-        <form className={styles.searchForm} onSubmit={handleSearch}>
+        <form className={styles.searchForm} onSubmit={handleSearch} role="search" aria-label="Search Eddit">
           <div className={styles.inputWrapper}>
             <input
               className={styles.searchInput}
@@ -41,6 +41,7 @@ function Header() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search Eddit"
+              aria-label="Search input"
             />
             <img className={styles.searchIcon} src={searchIcon} alt="Search Icon"/>
           </div>
