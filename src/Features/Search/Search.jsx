@@ -41,6 +41,7 @@ const Search = () => {
           author={post.author}
           preview={post.preview}
           media={post.media}
+          num_comments={post.num_comments}
         />
       ))}
     </div>
