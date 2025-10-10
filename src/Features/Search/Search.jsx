@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPosts } from '../Posts/postsSlice';
 import PostCard from '../../Components/PostCard';
+import PostSkeleton from '../../Components/PostSkeleton';
 import ErrorMessage from '../../Components/ErrorMessage';
 
 // This component displays search results only. Input logic lives in Header.jsx.
@@ -17,7 +18,13 @@ const Search = () => {
     }
   }, [dispatch, status, results.length]);
 
-  if (status === 'loading') return <p>Loading search results...</p>;
+  if (status === 'loading') {
+    return (
+      <div style={{ padding: 0 }}> 
+        {[...Array(1)].map((_, i) => <PostSkeleton noPadding key={i} />)}
+      </div>
+    );
+  }
   if (status === 'failed') {
   return (
     <ErrorMessage
