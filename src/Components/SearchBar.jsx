@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchSearchResults } from './searchSlice';
-import SearchBar from '../../Components/SearchBar';
+import { fetchSearchResults } from '../Features/Search/searchSlice';
 
 const Search = () => {
   const [query, setQuery] = useState('');
