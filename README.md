@@ -1,12 +1,73 @@
-# React + Vite
+# Reddit App Clone (Vite + React + Redux)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modular, responsive Reddit-style web app built with Vite, React, and Redux Toolkit. Users can browse posts by category, view post details and comments, and search Reddit content in real time using the Reddit public API.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Example Layout
 
-## Expanding the ESLint configuration
+- **Home View**: Category filter + post feed  
+- **Post Detail View**: Full post + comments  
+- **Search View**: Search bar + results
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Tech Stack
+
+| Layer        | Technology                      |
+|--------------|---------------------------------|
+| Frontend     | Vite + React + Redux Toolkit    |
+| Routing      | React Router                    |
+| Styling      | CSS Modules + Global Variables  |
+| State Mgmt   | Redux Toolkit + Async Thunks    |
+| Deployment   | Netlify                         |
+| API          | Reddit Public API (`https://www.reddit.com`) |
+
+---
+
+## Features
+
+- **Search Reddit**: Live search using Reddit’s public API  
+- **Category Filtering**: Browse posts by Popular, News, Technology, Funny  
+- **Post Detail View**: View full post content and comments  
+- **Skeleton Loaders**: Smooth loading experience with animated placeholders  
+- **Error Handling**: Reusable `ErrorMessage` component with retry logic  
+- **Responsive Design**: Optimized for mobile and desktop  
+- **Portrait/landscape media detection**: Dynamically adjusts layout based on media dimensions  
+- **Accessibility**: Focus-visible outlines, semantic roles, keyboard navigation
+
+---
+
+## Getting Started
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Run Locally
+
+Use this command to start the development server:
+
+```bash
+npm run dev
+```
+
+---
+
+## Future Improvements
+
+- Infinite Scroll or Pagination  
+- Dark Mode Toggle  
+- Comment Voting & Sorting  
+- User Authentication  
+- Bookmarking Posts  
+- Unit Tests for Redux Thunks  
+- PWA Support (Service Worker + Manifest)
+
+---
+
+## Author
+
+Built by [Edu](https://github.com/edu-navarre)
