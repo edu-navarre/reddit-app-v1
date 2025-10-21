@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
-import commentsIcon from '../Assets/Comment-11.svg';
+import commentsIcon from '../assets/Comment-11.svg';
 import styles from './PostCard.module.css';
 
 const PostCard = ({ id, title, subreddit, author, preview, media, num_comments, showComments=true }) => {
